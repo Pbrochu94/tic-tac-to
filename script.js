@@ -39,7 +39,7 @@ let gameboard = {
                 return;
             }  
         }
-        console.log("Win with a row") 
+        this.printWinner(symbol);
         this.reset();
     },
     checkColumn:function(columnIndex, symbol){
@@ -48,7 +48,7 @@ let gameboard = {
                 return;
             }
         }
-        console.log("Win with a column")
+        this.printWinner(symbol);
         this.reset();
     },
     checkDiag:function(symbol){
@@ -58,7 +58,7 @@ let gameboard = {
                 return;
             }
         }
-        console.log("Win with a diagonal")
+        this.printWinner(symbol);
         this.reset();
     },
     checkDiag2:function(symbol){
@@ -68,8 +68,16 @@ let gameboard = {
                 return;
             }
         }
-        console.log("Win with a diagonal")
+        this.printWinner(symbol);
         this.reset();
+    },
+    printWinner:function(symbol){
+        if(symbol === 0){
+            console.log(`the O won !`);
+        }
+        else{
+            console.log(`the X won !`);
+        }
     },
     reset:function(){
         this.row = [
