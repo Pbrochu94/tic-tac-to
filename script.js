@@ -23,6 +23,8 @@ let gameboard = {
         console.log(this.row)
         this.checkRow(row, symbol)
         this.checkColumn(column, symbol)
+        this.checkDiag(symbol)
+        this.checkDiag2(symbol)
     },
     player1: function(row, column){
         this.play(row, column, 0);
@@ -47,6 +49,26 @@ let gameboard = {
             }
         }
         console.log("Win with a column")
+        this.reset();
+    },
+    checkDiag:function(symbol){
+        for(let i = 0; i < 3; i++){
+            if(this.row[i][i] !== symbol)
+            {
+                return;
+            }
+        }
+        console.log("Win with a diagonal")
+        this.reset();
+    },
+    checkDiag2:function(symbol){
+        for(let i = 0; i < 3; i++){
+            if(this.row[i][2 - i] !== symbol)
+            {
+                return;
+            }
+        }
+        console.log("Win with a diagonal")
         this.reset();
     },
     reset:function(){

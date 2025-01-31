@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+    margin:0px;
+    padding:0px;
+    width: 100%;
+    height:100%;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board-wrapper{
+    width: 50%;
+    height: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: 10px solid black;
+}
+
+.cells{
+    background-color: aliceblue;
+    border:10px solid black
+}
