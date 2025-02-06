@@ -6,30 +6,13 @@ let gameboard = {
     ],
     lastPlayer:"none",
     timer:false,//the ending game timer
-    play: function(row, column, symbol){
-        if(row>2||row<0||column>2||column<0){
-            console.log("Error");
-            return;
-        }
-        if(this.row[row][column] === 0|| this.row[column] === 1){
-            console.log("Already occupied !")
-            return;
-        }
-        else{
-            this.row[row][column] = symbol;
-            this.lastPlayer = symbol;
-        }
-        console.log(this.row)
+    play: function(row, column, symbol){ //update array and call for direction checkups
+        this.row[row][column] = symbol;
+        this.lastPlayer = symbol;
         this.checkRow(row, symbol)
         this.checkColumn(column, symbol)
         this.checkDiag(symbol)
         this.checkDiag2(symbol)
-    },
-    player1: function(row, column){
-        this.play(row, column, 0);
-    },
-    player2:function(row, column){
-        this.play(row,column, 1);
     },
     checkRow:function(rowIndex, symbol){
         for(let i = 0; i < 3; i++){
@@ -38,7 +21,6 @@ let gameboard = {
                 return;
             }  
         }
-        this.printWinner(symbol);
         this.reset();
     },
     checkColumn:function(columnIndex, symbol){
@@ -47,7 +29,6 @@ let gameboard = {
                 return;
             }
         }
-        this.printWinner(symbol);
         this.reset();
     },
     checkDiag:function(symbol){
@@ -57,7 +38,6 @@ let gameboard = {
                 return;
             }
         }
-        this.printWinner(symbol);
         this.reset();
     },
     checkDiag2:function(symbol){
@@ -67,16 +47,7 @@ let gameboard = {
                 return;
             }
         }
-        this.printWinner(symbol);
         this.reset();
-    },
-    printWinner:function(symbol){
-        if(symbol === "O"){
-            console.log(`the O won !`);
-        }
-        else{
-            console.log(`the X won !`);
-        }
     },
     reset:function(){
         this.row = [
@@ -85,8 +56,8 @@ let gameboard = {
             ["","",""]
         ];
         manipulations.clickable = false;
-        let allBoxes = document.querySelectorAll(".symbol-field")
         gameboard.timer = true;
+        let allBoxes = document.querySelectorAll(".symbol-field")
         manipulations.titleSelector.innerText = `${manipulations.playerPlaying} won !`;
         setTimeout(function(){
         allBoxes.forEach(function(cell){
@@ -115,7 +86,6 @@ let manipulations = {
                 }
                 if(pElementInsideCell.innerText !== "")
                 {
-                    console.log("nui huh")
                     manipulations.titleSelector.innerText = "This cell is already occupied, choose another one !"
                     return;
                 }
