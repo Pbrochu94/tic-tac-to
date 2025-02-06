@@ -109,12 +109,18 @@ let manipulations = {
     events:function(){
         this.cells.forEach(function(cell){
             cell.addEventListener("click", function(){
+                let pElementInsideCell = this.querySelector("p");
                 if(!manipulations.clickable){//If during reset cannot interact with cells
+                    return;
+                }
+                if(pElementInsideCell.innerText !== "")
+                {
+                    console.log("nui huh")
+                    manipulations.titleSelector.innerText = "This cell is already occupied, choose another one !"
                     return;
                 }
                 let dataRow = parseInt(this.dataset.row);
                 let dataColumn = parseInt(this.dataset.column);
-                let pElementInsideCell = this.querySelector("p");
                 pElementInsideCell.textContent = manipulations.playerPlaying;
                 gameboard.play(dataRow,dataColumn, manipulations.playerPlaying)  
                 if(manipulations.playerPlaying === "X"){
