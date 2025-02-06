@@ -4,20 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="title">Let's start !</div>
    <div class="board-wrapper">
-    <div class="cells"></div>
-    <div class="cells"></div>
-    <div class="cells"></div>
-    <div class="cells"></div>
-    <div class="cells"></div>
-    <div class="cells"></div>
-    <div class="cells"></div>
-    <div class="cells"></div>
-    <div class="cells"></div>
+    <div class="cells top-left" data-row="0" data-column="0">
+        <p class="symbol-field"></p>
+    </div>
+    <div class="cells top-middle" data-row="0" data-column="1">
+        <p class="symbol-field"></p>
+    </div>
+    <div class="cells top-right" data-row="0" data-column="2">
+        <p class="symbol-field"></p>
+    </div>
+    <div class="cells middle-left" data-row="1" data-column="0">
+        <p class="symbol-field"></p>
+    </div>
+    <div class="cells middle-middle" data-row="1" data-column="1">
+        <p class="symbol-field"></p>
+    </div>
+    <div class="cells middle-right" data-row="1" data-column="2">
+        <p class="symbol-field"></p>
+    </div>
+    <div class="cells bot-left" data-row="2" data-column="0">
+        <p class="symbol-field"></p>
+    </div>
+    <div class="cells bot-mid" data-row="2" data-column="1">
+        <p class="symbol-field"></p>
+    </div>
+    <div class="cells bot-right" data-row="2" data-column="2">
+        <p class="symbol-field"></p>
+    </div>
    </div>
 </body>
 </html>
